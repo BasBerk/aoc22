@@ -28,11 +28,11 @@ function createFiles {
     $path = "day$day"
     $filename = Join-Path -Path $path -ChildPath "day$day.ps1"
     $inputdata = Join-Path -Path $path -ChildPath "input.txt"
-    $files = @("input.txt","day$day.ps1")
+    $files = @("input.txt", "day$day.ps1")
 
-    If (!(Test-Path -Path $path )){
+    If (!(Test-Path -Path $path )) {
         New-Item -ItemType Directory -Name $path
-        foreach ($file in $files){
+        foreach ($file in $files) {
             $filename = Join-Path -Path $path -ChildPath $file
             New-Item -ItemType File -Path $filename
         }
