@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param (
     [Parameter()]
-    [int32]$day = 2 
+    [int32]$day 
 )
 
 function LoadData {
