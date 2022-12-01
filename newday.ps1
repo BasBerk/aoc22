@@ -46,4 +46,4 @@ function createFiles {
 
 }
 
-createFiles
+createFiles -day $day
