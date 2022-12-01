@@ -38,9 +38,6 @@ function createFiles {
         }
         Set-Content -Path $filename -Value '$data = Get-Content -path .\input.txt'
     }
-    
-    New-Item -ItemType File -Path $filename
-    New-Item -ItemType File -Path  $inputdata
     Set-Content -Path $filename -Value '$data = Get-Content -path .\input.txt'
     Set-Content -Path $inputdata -Value (LoadData -day $day )
 
