@@ -1,10 +1,3 @@
-$data = @(Get-Content -path .\input.txt -Raw)
-$
-<# xrock =1
-ypaper =2
-zscissors =3
- #>
-
 function score {
     param (
         $inp
@@ -32,7 +25,6 @@ function convert {
 
     return $result
 }
-
 
 function winner {
     param (
@@ -74,11 +66,45 @@ $fight = 1
 $totalScore = 0
 foreach ($line in Get-Content .\input.txt) {
     
-    $round = (winner -o $line.Split(' ')[0] -y $line.Split(' ')[1])
+    $o = $line.Split(' ')[0]
+    $y = $line.Split(' ')[1]
+
+    If ($y -eq "X") {
+        Write-host "need to lose" -ForegroundColor yellow
+        if ($o -eq "A") { 
+            $round = (winner -o $o -y "z")
+        }
+        if ($o -eq "B") {
+            $round = (     winner -o $o -y "X")
+        }
+        if ($o -eq "C") {
+            $round = (winner -o $o -y "Y")
+        }
+    }
+
+    If ($y -eq "Y") {
+        write-host "Need to draw" -ForegroundColor Cyan
+        #Draw other Paper
+        $round = (  winner -o $o -y $o)
+        
+    }
+
+    If ($y -eq "Z") {
+        write-host "need to win" -ForegroundColor Green
+        if ($o -eq "A") {
+            $round = (winner -o $o -y "Y")
+        }
+        if ($o -eq "B") {
+            $round = (winner -o $o -y "Z")
+        }
+        if ($o -eq "C") {
+            $round = (winner -o $o -y "X")
+        }
+
+    }
+    # $round = (winner -o $oine.Split(' ')[0] -y $line.Split(' ')[1])
     $totalScore = $round + $totalScore
     "fight {0} score:{1} TotalScore:{2}" -f $fight, $round, $totalScore
     $fight++
+
 }
-
-
-
