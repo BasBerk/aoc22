@@ -26,7 +26,7 @@ function createFiles {
         $day
     )
     $path = "day$day"
-    $filename = Join-Path -Path $path -ChildPath "day$day.ps1"
+    $filename = Join-Path -Path $path -ChildPath "day$day-1.ps1"
     $inputdata = Join-Path -Path $path -ChildPath "input.txt"
     $files = @("input.txt", "day$day.ps1")
 
