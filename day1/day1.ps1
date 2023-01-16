@@ -14,7 +14,7 @@ for ($i = 0; $i -le $items.Count ; $i++) {
 
     }
     else {
-        "Elf {0} has {1} calories total" -f $elfNumber, $elfTotal
+        #"Elf {0} has {1} calories total" -f $elfNumber, $elfTotal
         $elfControl.Add($elfNumber, $elfTotal)
         $elfNumber++
         $elfTotal = 0 

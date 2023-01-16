@@ -61,7 +61,7 @@ function moveCrates {
 #moveCrates -moves 3 -from 1 -to 2
 
 for ($line = 10; $line -lt $data.Count; $line++) {
-    $data[$line]
+   # $data[$line]
 
     
   
@@ -69,5 +69,7 @@ for ($line = 10; $line -lt $data.Count; $line++) {
     $moves = $data[$line] -replace "[a-z]" -split " "
    
     moveCrates -moves $moves[1] -from $moves[3] -to $moves[5]
-    $stacks
+   <#  clear
+    $stacks  #>
+    
 }

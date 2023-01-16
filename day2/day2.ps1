@@ -38,7 +38,7 @@ function winner {
     $other = convert -inp $o
     $you = convert -inp $y
 
-    "other:{0}:{1}  You {2}:{3}" -f $o, $other, $y, $you | write-host
+  # "other:{0}:{1}  You {2}:{3}" -f $o, $other, $y, $you | write-host
     if ($other -eq 'rock' -and $you -eq 'paper') {
         $Score = $win + (score -inp $you)
     }
@@ -70,7 +70,7 @@ foreach ($line in Get-Content .\input.txt) {
     $y = $line.Split(' ')[1]
 
     If ($y -eq "X") {
-        Write-host "need to lose" -ForegroundColor yellow
+      #  Write-host "need to lose" -ForegroundColor yellow
         if ($o -eq "A") { 
             $round = (winner -o $o -y "z")
         }
@@ -83,14 +83,14 @@ foreach ($line in Get-Content .\input.txt) {
     }
 
     If ($y -eq "Y") {
-        write-host "Need to draw" -ForegroundColor Cyan
+       # write-host "Need to draw" -ForegroundColor Cyan
         #Draw other Paper
         $round = (  winner -o $o -y $o)
         
     }
 
     If ($y -eq "Z") {
-        write-host "need to win" -ForegroundColor Green
+      #  write-host "need to win" -ForegroundColor Green
         if ($o -eq "A") {
             $round = (winner -o $o -y "Y")
         }
@@ -104,7 +104,8 @@ foreach ($line in Get-Content .\input.txt) {
     }
     # $round = (winner -o $oine.Split(' ')[0] -y $line.Split(' ')[1])
     $totalScore = $round + $totalScore
-    "fight {0} score:{1} TotalScore:{2}" -f $fight, $round, $totalScore
+  # "fight {0} score:{1} TotalScore:{2}" -f $fight, $round, $totalScore
     $fight++
 
 }
+"fight {0} score:{1} TotalScore:{2}" -f $fight, $round, $totalScore

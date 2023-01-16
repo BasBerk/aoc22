@@ -29,7 +29,7 @@ for ($i = 7; $i -ge 0; $i--) {
         $stackNumber = $data[8].Substring($selectStack, 4).trim()
 
         $stacks.$stackNumber += $load
-        $stackNumber
+      #  $stackNumber
         }
     }  
    
@@ -69,7 +69,7 @@ function moveCrates {
 #MoveCrates -moves 3 -from 1 -to 2
 
 for ($line = 10; $line -lt $data.Count; $line++) {
-    $data[$line]
+    #$data[$line]
 
     
   
@@ -77,7 +77,8 @@ for ($line = 10; $line -lt $data.Count; $line++) {
     $moves = $data[$line] -replace "[a-z]" -split " "
    
     moveCrates -moves $moves[1] -from $moves[3] -to $moves[5]
-    $stacks
+   <#  clear
+    $stacks #>
 }
 
 
